@@ -111,9 +111,9 @@ const Eco = () => {
 
 
 
- <div className="text-gray-400 p-4 rounded-2xl shadow-sm flex flex-row flex-wrap justify-between items-center gap-4">
+<div className="text-gray-400 p-2 rounded-2xl shadow-sm flex flex-row flex-nowrap justify-between items-center gap-4 overflow-x-auto scrollbar-hide">
   {/* Left Section: Search + Filters */}
-  <div className="flex flex-row  items-center gap-3 sm:gap-6 text-[10px] sm:text-sm">
+  <div className="flex flex-row items-center gap-3 sm:gap-6 text-[10px] sm:text-sm flex-shrink-0">
     {/* Search */}
     <button
       onClick={goToWallet}
@@ -127,18 +127,18 @@ const Eco = () => {
     <div className="flex gap-1 sm:gap-2">
       <span className="font-medium">Asset</span>
       <span className="text-gray-400">is</span>
-      <span className="font-semibold text-gray-800 bg-green-200 px-2 rounded-full ">any asset</span>
+      <span className="font-semibold text-gray-800 bg-green-200 px-2 rounded-full  ">any asset</span>
     </div>
 
     {/* Market */}
-    <div className="flex gap-1 sm:gap-2">
+    <div className="flex gap-1 sm:gap-1">
       <span className="font-medium">Market</span>
       <span className="text-gray-400">is</span>
       <span className="font-semibold text-gray-800 bg-green-200 px-2 rounded-full">any market</span>
     </div>
 
     {/* Risk Curator */}
-    <div className="flex gap-1 sm:gap-2">
+    <div className="flex gap-1 sm:gap-1">
       <span className="font-medium">Risk curator</span>
       <span className="text-gray-400">is</span>
       <span className="font-semibold text-gray-800 bg-green-200 px-2 rounded-full">anyone</span>
@@ -146,7 +146,7 @@ const Eco = () => {
   </div>
 
   {/* Right Section: In Wallet + Info + Toggle */}
-  <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-sm text-gray-300">
+  <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-sm text-gray-300 flex-shrink-0">
     <span className="font-medium">In wallet</span>
     <Info className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500" />
 
@@ -166,6 +166,7 @@ const Eco = () => {
     </label>
   </div>
 </div>
+
 
 
     
