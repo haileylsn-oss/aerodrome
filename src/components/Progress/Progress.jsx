@@ -254,108 +254,89 @@ const Progress = () => {
   );
 
   return (
-    <div className="min-h-screen ">
-      <div className="container mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-8">
-       
-        
-        <div className="max-w-full overflow-x-scroll rounded-xl text-gray-300">
-          <div className="relative w-full overflow-auto">
-            <table className="w-full caption-bottom text-sm">
-              {/* <thead className="[&_tr]:">
-                <tr className=" transition-colors  data-[state=selected]:bg-gray-100">
-                  <th className="h-12 px-4 text-left align-middle text-gray-200 [&:has([role=checkbox])]:pr-0 text-sm font-semibold uppercase">
-                    <button className="uppercase">Pool</button>
-                  </th>
-                  <th className="h-12 px-4 align-middle text-gray-200 [&:has([role=checkbox])]:pr-0 text-sm font-semibold uppercase text-right tabular-nums">
-                    <button className="uppercase">Capacity</button>
-                  </th>
-                  <th className="h-12 px-4 align-middle text-gray-200 [&:has([role=checkbox])]:pr-0 text-sm font-semibold uppercase text-right tabular-nums">
-                    <button className="uppercase">7-day</button>
-                  </th>
-                  <th className="h-12 px-4 align-middle text-gray-200 [&:has([role=checkbox])]:pr-0 text-sm font-semibold uppercase text-right align-right tabular-nums">
-                    <button className="uppercase">30-day</button>
-                  </th>
-                  <th className="h-12 px-4 text-left align-middle text-gray-200 [&:has([role=checkbox])]:pr-0 text-sm font-semibold uppercase"></th>
-                </tr>
-              </thead> */}
-              <tbody className="[&_tr:last-child]:border-0">
-                {pools.map((pool) => (
-                  <tr 
-                    key={pool.id}
-                    className="border-b transition-colors  data-[state=selected]:bg-gray-100"
-                    data-state="false"
+ <div className="min-h-screen">
+  <div className="container mx-auto max-w-7xl px-3 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-full overflow-x-scroll rounded-xl text-gray-300">
+      <div className="relative w-full overflow-auto">
+        <table className="w-full caption-bottom text-sm sm:text-base">
+          <tbody className="[&_tr:last-child]:border-0">
+            {pools.map((pool) => (
+              <tr
+                key={pool.id}
+                className="border-b transition-colors data-[state=selected]:bg-gray-100"
+                data-state="false"
+              >
+                <td className="p-2 sm:p-4 align-middle [&:has([role=checkbox])]:pr-0 text-xs sm:text-base font-medium text-gray-200">
+                  <button
+                    onClick={handleLinkClick}
+                    className="flex items-center gap-2 sm:gap-4 font-semibold hover:text-blue-600 transition-colors w-full text-left"
                   >
-                    <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-base font-medium text-gray-200">
-                      <button 
-                        onClick={handleLinkClick}
-                        className="flex items-center gap-4 font-semibold hover:text-blue-600 transition-colors w-full text-left"
-                      >
-                        <img 
-                          alt={pool.name} 
-                          loading="lazy" 
-                          width="32" 
-                          height="32" 
-                          decoding="async" 
-                          className="size-8 rounded-md" 
-                          src={pool.image}
-                        />
-                        <span>{pool.name}</span>
-                        {pool.boosted && (
-                          <span className="inline-flex items-center rounded-xl  px-2.5 py-0.5 text-xs font-semibold transition-colors border-transparent bg-green-100 text-green-700 hover:bg-green-100/80">
-                            Boosted
-                          </span>
-                        )}
-                      </button>
-                    </td>
-                    
-                    <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-base font-medium text-gray-200 text-right tabular-nums">
-                      <button 
-                        onClick={handleLinkClick}
-                        className="hover:text-blue-600 transition-colors"
-                        data-state="closed"
-                      >
-                        {formatCurrency(animatedAmounts[pool.id] || 0)}
-                      </button>
-                    </td>
-                    
-                    <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-base font-medium text-gray-200 text-right tabular-nums">
-                      {pool.boosted ? (
-                        <span className="font-semibold text-green-600">
-                          <ChevronUpIcon />
-                          {pool.sevenDay}%
-                        </span>
-                      ) : (
-                        <span>{pool.sevenDay}%</span>
-                      )}
-                    </td>
-                    
-                    <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-base font-medium text-gray-200 text-right align-right tabular-nums">
-                      {pool.boosted ? (
-                        <span className="font-semibold text-green-600">
-                          <ChevronUpIcon />
-                          {pool.thirtyDay}%
-                        </span>
-                      ) : (
-                        <span>{pool.thirtyDay}%</span>
-                      )}
-                    </td>
-                    
-                    <td className="p-4 align-middle [&:has([role=checkbox])]:pr-0 text-base font-medium text-gray-900">
-                      <button 
-                        onClick={handleLinkClick}
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        <PlusIcon />
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                    <img
+                      alt={pool.name}
+                      loading="lazy"
+                      width="24"
+                      height="24"
+                      className="size-6 sm:size-8 rounded-md"
+                      src={pool.image}
+                    />
+                    <span>{pool.name}</span>
+                    {pool.boosted && (
+                      <span className="inline-flex items-center rounded-xl px-1.5 sm:px-2.5 py-0.5 text-[10px] sm:text-xs font-semibold transition-colors border-transparent bg-green-100 text-green-700 hover:bg-green-100/80">
+                        Boosted
+                      </span>
+                    )}
+                  </button>
+                </td>
+
+                <td className="p-2 sm:p-4 align-middle [&:has([role=checkbox])]:pr-0 text-xs sm:text-base font-medium text-gray-200 text-right tabular-nums">
+                  <button
+                    onClick={handleLinkClick}
+                    className="hover:text-blue-600 transition-colors"
+                    data-state="closed"
+                  >
+                    {formatCurrency(animatedAmounts[pool.id] || 0)}
+                  </button>
+                </td>
+
+                <td className="p-2 sm:p-4 align-middle [&:has([role=checkbox])]:pr-0 text-xs sm:text-base font-medium text-gray-200 text-right tabular-nums">
+                  {pool.boosted ? (
+                    <span className="font-semibold text-green-600 flex items-center justify-end gap-1">
+                      <ChevronUpIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+                      {pool.sevenDay}%
+                    </span>
+                  ) : (
+                    <span>{pool.sevenDay}%</span>
+                  )}
+                </td>
+
+                <td className="p-2 sm:p-4 align-middle [&:has([role=checkbox])]:pr-0 text-xs sm:text-base font-medium text-gray-200 text-right tabular-nums">
+                  {pool.boosted ? (
+                    <span className="font-semibold text-green-600 flex items-center justify-end gap-1">
+                      <ChevronUpIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+                      {pool.thirtyDay}%
+                    </span>
+                  ) : (
+                    <span>{pool.thirtyDay}%</span>
+                  )}
+                </td>
+
+                <td className="p-2 sm:p-4 align-middle [&:has([role=checkbox])]:pr-0 text-xs sm:text-base text-gray-900 text-center">
+                  <button
+                    onClick={handleLinkClick}
+                    className="hover:text-blue-600 transition-colors"
+                  >
+                    <PlusIcon className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
+</div>
+
   );
 };
 
