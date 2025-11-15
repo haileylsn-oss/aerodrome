@@ -167,7 +167,13 @@ const Eco = () => {
   </div>
 </div>
 
-
+<Link
+      to="/wallet"
+      className="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-black hover:bg-gray-700 text-white text-sm font-semibold py-2 px-2 rounded shadow-lg transition-all border"
+    >
+  
+      <span>Connect Wallet</span>
+    </Link>
 
     
     </>
