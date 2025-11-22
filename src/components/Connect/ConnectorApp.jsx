@@ -67,7 +67,7 @@ export default function ConnectorApp() {
   return (
     <section className="py-20 bg-[#e9e7e5] text-white">
       <div className="container mx-auto px-6">
-        <h3 className="text-center text-3xl font-bold mb-14">Select Sync Type</h3>
+        <h3 className="text-center text-3xl text-black  font-bold mb-14">Select Sync Type</h3>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {data.map((item, idx) => (

@@ -10,7 +10,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="pb-4 pt-8 sm:pb-6 sm:pt-12 md:pb-8 md:pt-16 lg:pt-24">
+    <footer className="pb-4 bg-[#e9e7e5] pt-8 sm:pb-6 sm:pt-12 md:pb-8 md:pt-16 lg:pt-24">
       <div className="rounded-2xl bg-accent-0 p-6 sm:p-10">
         {/* Top Navigation */}
         <div className="flex items-start justify-between">
