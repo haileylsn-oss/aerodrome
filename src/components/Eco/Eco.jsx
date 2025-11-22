@@ -1,182 +1,185 @@
+import React from "react";
+import eth from '../../assets/ETH.svg'
+import card1 from '../../assets/card1.jpg'
+import card2 from '../../assets/card2.jpg'
+import card3 from '../../assets/card3.jpg'
 import { Link } from "react-router-dom";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Search, Info } from "lucide-react";
-
-
+import ma from '../../assets/ma.jpg'
+import ConnectorApp from "../Connect/ConnectorApp"
 const Eco = () => {
-
-   const [inWallet, setInWallet] = useState(false);
-  const navigate = useNavigate();
-
-  const goToWallet = () => navigate("/wallet");
-
-
-
   return (
     <>
-<section className="w-full py-8 text-gray-300 mt-8">
-  <div className="flex flex-row items-center justify-between max-w-6xl mx-auto px-4 gap-4 sm:gap-8">
+    <section className="relative flex flex-col pt-[var(--header-height)] -mt-[var(--header-height)]">
+      {/* GRAY → BLUE BACKGROUND */}
+     <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#e9e7e5] via-blue-500 to-[#e9e7e5]" />
 
-    {/* Left Content */}
-    <Link
-      to="/wallet"
-      className="flex min-w-0 gap-3 max-w-[800px] hover:opacity-90 transition"
-    >
-      <div className="flex items-center gap-3 sm:gap-6">
-        {/* Icon Frame */}
-        <div className="flex shrink-0 items-center justify-center w-12 h-12 sm:w-24 sm:h-24 rounded-2xl border bg-[#00ffd11a] border-[#2AE5B933]">
-          <svg
-            className="w-6 h-8 sm:w-[34px] sm:h-[47px]"
-            viewBox="0 0 34 47"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <title>Lend</title>
-            <path d="M9.00001 13.4551L1 18.0928L17 27.3681L33 18.0928L25 13.4551" stroke="#2AE5B9" strokeWidth="0.6" strokeMiterlimit="10"/>
-            <path d="M33 36.5664L17 45.8417V27.291L33 18.0156V36.5664Z" fill="url(#paint0_linear)" fillOpacity="0.5" stroke="#2AE5B9" strokeWidth="0.6" strokeMiterlimit="10"/>
-            <path d="M1 18.0156V36.5664L17 45.8417V27.291L1 18.0156Z" fill="url(#paint1_linear)" fillOpacity="0.5" stroke="#2AE5B9" strokeWidth="0.6" strokeMiterlimit="10"/>
-            <rect x="24.7" y="15.8582" width="15.4" height="15.4" rx="7.7" transform="rotate(180 24.7 15.8582)" fill="url(#paint2_linear)" fillOpacity="0.2" stroke="#2AE5B9" strokeWidth="0.6"/>
-            <path d="M17.0002 4.85156V11.4641M17.0002 11.4641L20.2002 8.22939M17.0002 11.4641L13.8002 8.22939" stroke="#2AE5B9" strokeWidth="0.6" strokeLinejoin="round"/>
-            <defs>
-              <linearGradient id="paint0_linear" x1="25" y1="18.0156" x2="25" y2="45.8417" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#2AE5B9"/>
-                <stop offset="1" stopOpacity="0"/>
-              </linearGradient>
-              <linearGradient id="paint1_linear" x1="9" y1="18.0156" x2="9" y2="45.8417" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#2AE5B9"/>
-                <stop offset="1" stopOpacity="0"/>
-              </linearGradient>
-              <linearGradient id="paint2_linear" x1="33" y1="16.1582" x2="33" y2="32.1582" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#2AE5B9"/>
-                <stop offset="1" stopOpacity="0"/>
-              </linearGradient>
-            </defs>
-          </svg>
+
+      {/* TEXT SECTION */}
+      <div className="relative z-20 pt-4 sm:pt-12 text-center max-w-xl mx-auto">
+        <h2 className="mb-5 text-4xl font-semibold sm:text-7xl sm:mb-8">
+          Swap, deposit,
+          <br /> take to the skies
+        </h2>
+
+        <p className="hidden sm:block mx-auto w-5/6 text-sm sm:text-lg">
+          Aerodrome is a <span className="font-bold">decentralized exchange</span>{" "}
+          where you can execute low-fee swaps, deposit tokens to earn rewards,
+          and participate in the onchain economy.
+        </p>
+      </div>
+
+<div className="relative z-10 flex justify-center  items-center min-h-screen">
+  {/* SWAP CARD */}
+  <div className="max-w-xl mx-auto bg-white sm:-m-2 sm:rounded-[20px] sm:bg-white/5 sm:p-2 sm:outline sm:outline-white/15 sm:backdrop-blur-[1px] rounded-[20px]">
+    <div className="bg-white via-white/5 to-white/0 rounded p-5 sm:p-8">
+
+      {/* SELL */}
+      <div className="space-y-3">
+        <div className="flex justify-between px-2 text-sm font-semibold">
+          <span>Sell</span>
+          <span className="text-xs text-accent-50">Balance 0.0 ETH</span>
         </div>
 
-        {/* Text */}
-        <div className="flex flex-col gap-0.5 sm:gap-1">
-          <h1 className="text-base sm:text-2xl font-semibold text-text-primary">Lend</h1>
-          <p className="text-[10px] sm:text-sm text-text-secondary">
-            Earn yield on assets by lending them out.
-          </p>
+        <div className="flex items-center gap-3 p-4 border rounded-xl border-accent-30">
+          <button className="flex items-center gap-2 bg-accent-10 rounded-full p-2 pr-4 text-xs font-semibold">
+         <img
+  src={eth}
+  className="w-6 h-6"
+  alt="ETH"
+/>
+
+            ETH
+          </button>
+
+          <div className="flex flex-col w-full">
+            <input
+              className="w-full text-end text-2xl sm:text-3xl bg-transparent font-semibold outline-none placeholder:text-accent-30"
+              placeholder="0"
+            />
+            <span className="text-end text-xs text-accent-50">~$0.0</span>
+          </div>
         </div>
       </div>
-    </Link>
 
-    {/* Right Stats */}
-    <ul className="flex flex-row items-end gap-4 sm:gap-8">
-      {/* Total Borrow */}
-      <li>
-        <Link
-          to="/wallet"
-          className="flex flex-col items-end gap-0.5 hover:opacity-90 transition"
-        >
-          <h6 className="font-semibold text-text-subText text-[10px] sm:text-sm">
-            Total borrow
-          </h6>
-          <div className="flex flex-col gap-0.5">
-            <div className="flex justify-end gap-1">
-              <h6 className="text-text-subText text-[14px] sm:text-xl font-semibold">$</h6>
-              <h6 className="text-text-primary text-[14px] sm:text-xl font-semibold">1.29B</h6>
-            </div>
-            <p className="text-text-secondary text-[10px] sm:text-sm">$713.96M on Ethereum</p>
+      {/* SWITCH BUTTON */}
+      <div className="flex items-center gap-3 my-5 sm:my-8">
+        <div className="h-px flex-1 bg-accent-20" />
+        <button className="bg-primary/10 p-2 rounded-full text-primary">
+          ↓
+        </button>
+        <div className="h-px flex-1 bg-accent-20" />
+      </div>
+
+      {/* BUY */}
+      <div className="space-y-3">
+        <div className="flex justify-between px-2 text-sm font-semibold">
+          <span>Buy</span>
+          <span className="text-xs text-accent-50">Balance 0.0 AERO</span>
+        </div>
+
+        <div className="flex items-center gap-3 p-4 border rounded-xl border-accent-30">
+          <button className="flex items-center gap-2 bg-accent-10 rounded-full p-2 pr-4 text-xs font-semibold">
+            <img
+              src="https://raw.githubusercontent.com/SmolDapp/tokenAssets/main/tokens/8453/0x940181a94a35a4569e4529a3cdfb74e38fd98631/logo.svg"
+              className="size-6"
+              alt="AERO"
+            />
+            AERO
+          </button>
+
+          <div className="flex flex-col w-full">
+            <input
+              disabled
+              className="w-full text-end text-2xl sm:text-3xl bg-transparent font-semibold text-accent-30"
+              value="0"
+            />
+            <span className="text-end text-xs text-accent-50">~$0.0</span>
           </div>
-        </Link>
-      </li>
+        </div>
+      </div>
 
-      {/* Total Supply */}
-      <li>
-        <Link
-          to="/wallet"
-          className="flex flex-col items-end gap-0.5 hover:opacity-90 transition"
-        >
-          <h6 className="font-semibold text-text-subText text-[10px] sm:text-sm">
-            Total supply
-          </h6>
-          <div className="flex flex-col gap-0.5">
-            <div className="flex justify-end gap-1">
-              <h6 className="text-text-subText text-[14px] sm:text-xl font-semibold">$</h6>
-              <h6 className="text-text-primary text-[14px] sm:text-xl font-semibold">2.50B</h6>
-            </div>
-            <p className="text-text-secondary text-[10px] sm:text-sm">$1.49B on Ethereum</p>
-          </div>
-        </Link>
-      </li>
-    </ul>
+      {/* CONNECT BUTTON */}
+      <div className="mt-5">
+        <Link to={'/wallet'}>
+        <button className="w-full py-3.5 bg-blue-600 text-white rounded-full font-semibold">
+          Connect wallet
+        </button></Link>
+      </div>
 
-  </div>
-</section>
-
-
-
-<div className="text-gray-400 p-2 rounded-2xl shadow-sm flex flex-row flex-nowrap justify-between items-center gap-4 overflow-x-auto scrollbar-hide">
-  {/* Left Section: Search + Filters */}
-  <div className="flex flex-row items-center gap-3 sm:gap-6 text-[10px] sm:text-sm flex-shrink-0">
-    {/* Search */}
-    <button
-      onClick={goToWallet}
-      className="flex items-center gap-1 sm:gap-2 text-gray-300 hover:text-purple-600 transition"
-    >
-      <Search className="w-3 h-3 sm:w-4 sm:h-4" />
-      <span className="font-medium">Search</span>
-    </button>
-
-    {/* Asset */}
-    <div className="flex gap-1 sm:gap-2">
-      <span className="font-medium">Asset</span>
-      <span className="text-gray-400">is</span>
-      <span className="font-semibold text-gray-800 bg-green-200 px-2 rounded-full  ">any asset</span>
     </div>
-
-    {/* Market */}
-    <div className="flex gap-1 sm:gap-1">
-      <span className="font-medium">Market</span>
-      <span className="text-gray-400">is</span>
-      <span className="font-semibold text-gray-800 bg-green-200 px-2 rounded-full">any market</span>
-    </div>
-
-    {/* Risk Curator */}
-    <div className="flex gap-1 sm:gap-1">
-      <span className="font-medium">Risk curator</span>
-      <span className="text-gray-400">is</span>
-      <span className="font-semibold text-gray-800 bg-green-200 px-2 rounded-full">anyone</span>
-    </div>
-  </div>
-
-  {/* Right Section: In Wallet + Info + Toggle */}
-  <div className="flex items-center gap-2 sm:gap-3 text-[10px] sm:text-sm text-gray-300 flex-shrink-0">
-    <span className="font-medium">In wallet</span>
-    <Info className="w-3 h-3 sm:w-4 sm:h-4 text-gray-500" />
-
-    {/* Toggle Switch */}
-    <label className="relative inline-flex items-center cursor-pointer">
-      <input
-        type="checkbox"
-        checked={inWallet}
-        onChange={() => {
-          setInWallet(!inWallet);
-          goToWallet();
-        }}
-        className="sr-only peer"
-      />
-      <div className="w-8 h-4 sm:w-10 sm:h-5 bg-gray-300 rounded-full peer peer-checked:bg-purple-500 transition-all"></div>
-      <div className="absolute left-0.5 top-0.5 w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full peer-checked:translate-x-4 sm:peer-checked:translate-x-5 transition-transform"></div>
-    </label>
   </div>
 </div>
 
-<Link
-      to="/wallet"
-      className="fixed bottom-5 right-5 z-50 flex items-center gap-2 bg-black hover:bg-gray-700 text-white text-sm font-semibold py-2 px-2 rounded shadow-lg transition-all border"
-    >
-  
-      <span>Connect Wallet</span>
-    </Link>
-
+    </section>
     
-    </>
+    <div className="flex flex-col px-6 md:gap-6 md:px-20 bg-[#e9e7e5]">
+  {/* Heading */}
+  <div className="mb-8 md:mb-3">
+    <h2 className="text-xl sm:text-3xl font-semibold">
+      A durable foundation
+    </h2>
+  </div>
+
+  {/* Paragraph */}
+  <div className="order-3 sm:max-w-md md:max-w-[810px]">
+    <p className="text-xl sm:text-3xl">
+      Aerodrome is a MetaDEX, combining elegant design, intelligent incentives, and battle-tested technology to deliver the next generation of liquidity infrastructure.
+    </p>
+  </div>
+</div>
+
+
+       <ConnectorApp/>
+
+<div className="flex flex-col sm:flex-row flex-wrap bg-[#e9e7e5] justify-center items-center gap-4 p-4">
+  <img src={card1} alt="Card 1" className="w-full sm:w-1/3 max-w-xs h-auto object-contain rounded-lg" />
+  <img src={card2} alt="Card 2" className="w-full sm:w-1/3 max-w-xs h-auto object-contain rounded-lg" />
+  <img src={card3} alt="Card 3" className="w-full sm:w-1/3 max-w-xs h-auto object-contain rounded-lg" />
+</div>
+
+
+<div className="grid grid-cols-1 gap-3 px-6 sm:px-0 lg:grid-cols-3 bg-[#e9e7e5] ">
+  {/* Card 1 */}
+  <div className="rounded-2xl bg-accent-0 p-7 md:p-8 lg:p-9 bg-gray-100 p-3 rounded">
+    <div className="isolate w-full">
+      <h3 className="mb-7 text-xs uppercase tracking-wider">Traders</h3>
+      <div className="text-balance text-sm text-accent-50 lg:max-w-64 lg:text-base">
+        <p>Swap tokens with predictable exchange rates and low fees</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Card 2 */}
+  <div className="rounded-2xl bg-accent-0 p-7 md:p-8 lg:p-9 bg-gray-100 p-3 rounded">
+    <div className="isolate w-full">
+      <h3 className="mb-7 text-xs uppercase tracking-wider">Liquidity Providers</h3>
+      <div className="text-balance text-sm text-accent-50 lg:max-w-64 lg:text-base">
+        <p>Stake deposits to earn token emissions</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Card 3 */}
+  <div className="rounded-2xl bg-accent-0 p-7 md:p-8 lg:p-9 bg-gray-100 p-3 rounded">
+    <div className="isolate w-full">
+      <h3 className="mb-7 text-xs uppercase tracking-wider">Voters</h3>
+      <div className="text-balance text-sm text-accent-50 lg:max-w-64 lg:text-base">
+        <p>Lock and vote for pools to earn weekly fees and incentives</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<img 
+  src={ma} 
+  alt="" 
+  className="transition-transform duration-500 ease-in-out sm:scale-100 scale-105"
+/>
+   
+
+
+</>
   );
 };
 

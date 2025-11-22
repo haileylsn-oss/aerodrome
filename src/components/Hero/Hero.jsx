@@ -1,114 +1,53 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import logo from '../../assets/logo.jpg'
-import { Coins } from "lucide-react"; 
+import logo from "../../assets/logo.png"; // change to your real logo import
 
-const Hero = () => {
-  const navLinks = ["Earn", "Lend", "Borrow", "Strategies", "Pools", "EUL"];
-
+const Navbar = () => {
   return (
-    <header className="fixed top-0 z-[1301] w-full bg-black  text-gray-300 flex flex-col">
-      <div className="grid grid-cols-[auto_1fr_auto] items-center w-full bg-background-300 border-b border-background-500 h-[58px] pr-3 sm:pr-4 md:pr-6">
-        {/* Left: Logo and Nav */}
-  <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-  <nav className="text-aquamarine-1000">
-    <ul className="
-        mx-2 sm:mx-4 md:mx-6 
-        flex items-center gap-2 sm:gap-3 
-        h-12 sm:h-14 
-        min-w-0 whitespace-nowrap 
-        overflow-x-auto no-scrollbar
-      "
-    >
-      {/* Logo */}
-      <li className="relative flex min-h-[32px] sm:min-h-[36px] items-center justify-center pr-2 sm:pr-3">
-        <button
-          type="button"
-          className="cursor-pointer flex h-8 sm:h-9 items-center justify-center gap-1 sm:gap-2 rounded-lg leading-none group"
-        >
-          <span className="typography-body1 flex items-center gap-1 font-bold text-text-subText group-hover:text-white text-xs sm:text-sm">
-            <span className="inline-flex items-center">
-              <img
-                src={logo}
-                alt="Euler"
-                className="flex-none w-3 h-3 sm:w-[50px] sm:h-[50px] mr-1"
-              />
-            </span>
+    <nav className="w-full bg-[#e9e7e5] px-5 py-3 flex items-center justify-between">
+      {/* LEFT SIDE */}
+      <div className="flex items-center gap-2">
+        <img src={logo} alt="logo" className="w-10" />
 
-            <svg
-              aria-hidden="true"
-              className="ml-1 w-2.5 h-2.5 sm:w-3 sm:h-3 transition-transform duration-150"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 320 512"
-              fill="currentColor"
-            >
-              <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
-            </svg>
-          </span>
-        </button>
-      </li>
-
-      {/* Navigation Links */}
-      {navLinks.map((item, index) => (
-        <li
-          key={index}
-          className="relative flex min-h-[32px] sm:min-h-[36px] items-center justify-center"
-        >
-          <Link
-            to="/wallet"
-            className={`
-              typography-body1 flex cursor-pointer items-center justify-center gap-1 sm:gap-2 
-              font-semibold rounded-lg 
-              px-2 py-1 sm:px-4 sm:py-2 
-              text-xs sm:text-sm 
-              hover:text-aquamarine-1000 hover:bg-background-500 
-              ${item === "Lend"
-                ? "text-aquamarine-1000 bg-background-500"
-                : "text-text-subText"
-              }`}
-          >
-            {item}
-
-            {item === "Earn" && (
-              <span className="inline-flex h-4 sm:h-5 items-center justify-center rounded-sm bg-aquamarine-50 px-1">
-                <span className="typography-mono3 text-[10px] sm:text-sm bg-gray-800 text-green-300 px-1.5 sm:px-2 lining-nums slashed-zero tabular-nums">
-                  New
-                </span>
-              </span>
-            )}
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </nav>
-</div>
-
-
-        {/* Middle Spacer */}
-        <div className="min-w-0"></div>
-
-        {/* Right Section */}
-         <div className="flex shrink-0 items-center gap-2 sm:gap-3 md:gap-3 max-h-9">
-      {/* Ethereum Icon (routes to /wallet) */}
-      <Link
-        to="/wallet"
-        className="flex-row pointer relative inline-flex cursor-pointer items-center justify-center gap-2 rounded-full font-semibold text-aquamarine-1000 outline-background-600 hover:bg-background-600 h-9 min-w-9 px-[10px]"
-      >
-     
-        <Coins size={20} className="text-aquamarine-1000" />
-    
-      </Link>
-
-      {/* Connect Wallet Button (routes to /wallet) */}
-      <Link
-        to="/wallet"
-        className="flex-row pointer relative inline-flex cursor-pointer items-center justify-center gap-2 rounded-full font-semibold bg-background-500 text-aquamarine-1000 hover:bg-background-600 h-9 px-4"
-      >
-        Connect
-      </Link>
-    </div>
+        {/* Logo text visible ONLY on big screens */}
+        <p className="hidden md:block text-xl font-semibold text-gray-800">
+          AERODROME
+        </p>
       </div>
-    </header>
+
+      {/* RIGHT SIDE */}
+      <div className="flex items-center gap-6">
+
+        {/* NAVLINKS — ONLY ON LARGE SCREEN */}
+        <ul className="hidden md:flex items-center gap-6 text-gray-800 font-medium">
+          <Link to="/wallet" className="hover:text-purple-600">Dashboard</Link>
+          <Link to="/wallet" className="hover:text-purple-600">Swap</Link>
+          <Link to="/wallet" className="hover:text-purple-600">Liquidity</Link>
+          <Link to="/wallet" className="hover:text-purple-600">Vote</Link>
+          <Link to="/wallet" className="hover:text-purple-600">Lock</Link>
+          <Link to="/wallet" className="hover:text-purple-600">Incentivize</Link>
+        </ul>
+
+        {/* CONNECT + HAMBURGER BUTTON — BOTH INSIDE ONE BUTTON */}
+        <Link
+          to="/wallet"
+          className="flex items-center gap-2  px-4 py-2 rounded-full  hover:bg-gray-100 transition "
+        >
+          {/* Orange Dot */}
+          <span className="w-4 h-4 rounded-full bg-orange-400 border border-orange-200"></span>
+
+          <span className="font-medium text-gray-800">Connect</span>
+
+          {/* Hamburger icon */}
+          <span className="flex flex-col gap-[3px]">
+            <span className="w-4 h-[2px] bg-gray-800"></span>
+            <span className="w-4 h-[2px] bg-gray-800"></span>
+            <span className="w-4 h-[2px] bg-gray-800"></span>
+          </span>
+        </Link>
+      </div>
+    </nav>
   );
 };
 
-export default Hero;
+export default Navbar;

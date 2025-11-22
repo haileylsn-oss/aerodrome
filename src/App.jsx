@@ -11,11 +11,11 @@ const App = () => {
       
           <Hero />
           <Eco/>
-          <ConnectorApp/>
+   
      
    
      
-        <Progress />
+        <Footer />
   
       
     </>
